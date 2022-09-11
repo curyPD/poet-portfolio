@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import image from "./img/hero.jpg";
+
+export default function App() {
+    return (
+        <main>
+            <section className="py-10">
+                <div className="px-6 mx-auto max-w-sm">
+                    <h1 className="font-medium text-2xl mb-6 text-gray-900">
+                        Станислав Дружинин
+                    </h1>
+                    <p className="text-base text-gray-500 mb-12 leading-snug">
+                        Поэт, финалист и дипломант литературных премий, автор
+                        сборников стихотворений, изданных на пяти языках
+                    </p>
+                    <img
+                        src={image}
+                        alt="Фотография Станислава Дружинина"
+                        className="max-w-xs"
+                    />
+                    <button>Все произведения</button>
+                    <button>Написать сообщение</button>
+                </div>
+            </section>
+
+            <section></section>
+        </main>
+    );
 }
-
-export default App;
