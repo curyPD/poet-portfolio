@@ -4,9 +4,10 @@ import image from "../img/hero.jpg";
 
 function Hero() {
     return (
-        <section className="py-14 sm:py-16 md:py-20 xl:py-24">
-            <div className="container mx-auto flex flex-col items-center gap-10 px-6 sm:gap-14 md:px-12 lg:flex-row-reverse lg:px-6 xl:max-w-screen-xl xl:gap-24 xl:px-12">
-                <div className="max-w-xs sm:max-w-sm lg:w-2/5 lg:max-w-none">
+        <section className="py-10 sm:py-16 md:py-20 xl:py-24">
+            <div className="container mx-auto flex flex-col items-center gap-8 px-6 sm:gap-14 md:px-12 lg:flex-row-reverse lg:px-6 xl:max-w-screen-xl xl:gap-24 xl:px-12">
+                <div className="w-44 sm:w-auto sm:max-w-xs lg:w-2/5 lg:max-w-none">
+                    {/* <div className="max-w-xs sm:max-w-sm lg:w-2/5 lg:max-w-none"> */}
                     <img src={image} alt="Фотография Станислава Дружинина" />
                 </div>
 
@@ -34,6 +35,7 @@ function Hero() {
                         &rdquo; 2018, автор сборников стихотворений, изданных на
                         пяти языках.
                     </p>
+
                     <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-8 lg:justify-start xl:gap-10">
                         <button className="group relative block py-2 px-1 text-base font-medium md:text-lg lg:px-3 xl:px-5 xl:py-3 xl:text-xl">
                             <span className="relative z-10 text-gray-700 transition-colors group-hover:text-white">

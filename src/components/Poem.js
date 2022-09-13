@@ -1,45 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Poem(props) {
+function Poem({ poem }) {
     return (
         <article>
-            <h3 className="mb-5 text-xl font-semibold text-gray-800">Сплин</h3>
-            <p className="text-base text-gray-700">
-                Устав от тягостного сплина,
-                <br />
-                Лечусь вином я от тоски,
-                <br />
-                В уютном кресле у камина
-                <br />
-                Вдыхая аромат ольхи.
-                <br />
-                <br />
-                Гудит в трубе. Пунцово - синий
-                <br />
-                Огонь танцует на дровах.
-                <br />
-                И шепчет из-за окон ливень <br />
-                Неведомые мне слова.
-                <br />
-                <br />
-                Мой поиск жизненного смысла
-                <br />
-                Похож на бесполезный труд,
-                <br />
-                А голова, устав от мыслей,
-                <br />
-                Всё чаще падает на грудь.
-                <br />
-                <br />
-                Плохой погоды верный вестник,
-                <br />
-                Прижав к щеке мою ладонь,
-                <br />
-                Мой кот, мурлыча тихо песни,
-                <br />
-                Сощурясь, смотрит на огонь.
-                <br />
-            </p>
+            <h3 className="mb-5 text-xl font-semibold text-gray-800 lg:mt-2 xl:mb-7 xl:text-2xl">
+                {poem.title}
+            </h3>
+            <p
+                className="text-base text-gray-800 "
+                dangerouslySetInnerHTML={{ __html: poem.content }}
+            ></p>
         </article>
     );
 }
