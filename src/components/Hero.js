@@ -19,6 +19,7 @@ function Hero(props) {
                         <a
                             href="https://premianasledie.ru/"
                             target="_blank"
+                            rel="noreferrer"
                             className="transition-colors hover:text-amber-500 focus:text-amber-500 focus:outline-none"
                         >
                             Наследие
@@ -27,6 +28,7 @@ function Hero(props) {
                         <a
                             href="https://eseninpremia.ru/"
                             target="_blank"
+                            rel="noreferrer"
                             className="transition-colors hover:text-amber-500 focus:text-amber-500 focus:outline-none"
                         >
                             Русь моя
