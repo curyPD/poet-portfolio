@@ -37,7 +37,7 @@ export default function App() {
                                 >
                                     <HiOutlineChevronLeft className="text-base text-amber-500" />
                                     <span className="text-xs text-gray-600">
-                                        Категории
+                                        Темы
                                     </span>
                                 </button>
                             </div>

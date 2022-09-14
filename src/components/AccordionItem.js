@@ -31,7 +31,7 @@ function AccordionItem(props) {
         <article>
             <div
                 onClick={props.handleClick}
-                className="mb-2 inline-block cursor-pointer py-2"
+                className="mb-2 block cursor-pointer py-2 sm:inline-block"
             >
                 <button className="group flex items-center gap-3 focus:outline-none">
                     {props.active ? (
