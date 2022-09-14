@@ -21,10 +21,17 @@ function Accordion(props) {
             active={activeItem === i}
             handleClick={() => onItemClick(i)}
             setCurPoem={props.setCurPoem}
+            curPoem={props.curPoem}
         />
     ));
 
-    return <div className="flex-1">{accordionItems}</div>;
+    return (
+        <div
+            className={`flex-1 ${props.curPoem ? "hidden" : "block"} lg:block`}
+        >
+            {accordionItems}
+        </div>
+    );
 }
 
 export default Accordion;
