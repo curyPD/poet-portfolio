@@ -33,8 +33,8 @@ function Hero(props) {
                         >
                             Русь моя
                         </a>
-                        &rdquo; 2018, автор сборников стихотворений, изданных на
-                        пяти языках.
+                        &rdquo; 2018. Стихи переведены на немецкий, венгерский,
+                        болгарский и итальянский языки.
                     </p>
 
                     <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-8 lg:justify-start xl:gap-10">
