@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 
 import Hero from "./components/Hero";
 import Work from "./components/Work";
+import Rewards from "./components/Rewards";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <>
             <main>
                 <Hero handleScroll={handleScroll} />
+                <Rewards />
                 <Work sectionRef={sectionRef} />
             </main>
             <Footer />
