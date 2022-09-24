@@ -11,7 +11,7 @@ import data from "./poems";
 export default function App() {
     const [curPoem, setCurPoem] = useState(null);
     const sectionRef = useRef(null);
-
+    console.log("new-branch");
     function handleScroll() {
         sectionRef.current?.scrollIntoView({ behavior: "smooth" });
     }
