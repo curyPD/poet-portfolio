@@ -14,13 +14,13 @@ function Hero(props) {
                     <h1 className="mb-6 text-center text-3xl font-semibold text-gray-900 sm:mb-8 sm:text-4xl lg:text-left xl:mb-12 xl:text-5xl">
                         Станислав Дружинин
                     </h1>
-                    <p className="xl-mb-16 mb-8 text-center text-sm text-gray-500 sm:mb-10 sm:text-base md:text-lg lg:mb-12 lg:w-11/12 lg:text-left xl:mb-16 xl:text-xl xl:leading-normal">
+                    <p className="xl-mb-16 mb-9 text-center text-sm text-gray-500 sm:mb-10 sm:text-base md:text-lg lg:mb-12 lg:w-11/12 lg:text-left xl:mb-16 xl:text-xl xl:leading-normal">
                         Поэт, финалист литературных премий &ldquo;
                         <a
                             href="https://premianasledie.ru/"
                             target="_blank"
                             rel="noreferrer"
-                            className="transition-colors hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+                            className="transition-colors hover:text-orange-400 focus:text-orange-400 focus:outline-none"
                         >
                             Наследие
                         </a>
@@ -29,7 +29,7 @@ function Hero(props) {
                             href="https://eseninpremia.ru/"
                             target="_blank"
                             rel="noreferrer"
-                            className="transition-colors hover:text-amber-500 focus:text-amber-500 focus:outline-none"
+                            className="transition-colors hover:text-orange-400 focus:text-orange-400 focus:outline-none"
                         >
                             Русь моя
                         </a>
@@ -37,25 +37,19 @@ function Hero(props) {
                         болгарский и итальянский языки.
                     </p>
 
-                    <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-8 lg:justify-start xl:gap-10">
+                    <div className="flex items-center justify-center gap-2 sm:gap-8 lg:justify-start xl:gap-10">
                         <button
                             onClick={props.handleScroll}
-                            className="group relative block py-2 px-1 text-base font-medium focus:outline-none md:text-lg lg:px-3 xl:px-5 xl:py-3 xl:text-xl"
+                            className="border-2 border-orange-400 bg-orange-400 py-2 px-1 text-xs font-medium text-white transition-all hover:border-gray-700 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-orange-200 sm:px-3 sm:text-base xl:px-4 xl:text-lg"
                         >
-                            <span className="relative z-10 text-gray-700 transition-colors group-hover:text-white">
-                                Все произведения
-                            </span>
-                            <span className="absolute bottom-1 left-1/2 z-0 h-0.5 w-full -translate-x-1/2 bg-amber-500 transition-all group-hover:bottom-0 group-hover:h-full group-hover:w-full group-focus:bottom-0 lg:w-11/12 xl:bottom-2"></span>
+                            Все произведения
                         </button>
 
                         <a
                             href="mailto: stas1365iv@gmail.com"
-                            className="group relative block py-2 px-1 text-base font-medium focus:outline-none md:text-lg lg:px-3 xl:py-3 xl:px-5 xl:text-xl"
+                            className="inline-block border-2 border-orange-400 bg-white py-2 px-1 text-xs font-medium text-orange-400 transition-all hover:bg-orange-400 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-200 sm:px-3 sm:text-base xl:px-4 xl:text-lg"
                         >
-                            <span className="relative z-10 text-gray-700 transition-colors group-hover:text-white">
-                                Написать сообщение
-                            </span>
-                            <span className="absolute bottom-1 left-1/2 z-0 h-0.5 w-full -translate-x-1/2 bg-amber-500 transition-all group-hover:bottom-0 group-hover:h-full group-hover:w-full group-focus:bottom-0 lg:w-11/12 xl:bottom-2"></span>
+                            Написать сообщение
                         </a>
                     </div>
                 </div>

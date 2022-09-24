@@ -21,7 +21,7 @@ function Work({ sectionRef }) {
                             className="mb-5 flex items-center gap-2 py-1"
                             onClick={() => setCurPoem(null)}
                         >
-                            <HiOutlineChevronLeft className="text-base text-amber-500" />
+                            <HiOutlineChevronLeft className="text-base text-orange-400" />
                             <span className="text-xs text-gray-600">Темы</span>
                         </button>
                     </div>

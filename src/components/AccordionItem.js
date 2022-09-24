@@ -15,9 +15,9 @@ function AccordionItem(props) {
     const titles = props.titles.map((title, i) => (
         <li key={i} className="mb-3 text-sm md:text-base">
             <button
-                className={`transition-colors focus:text-amber-500 focus:outline-none ${
+                className={`transition-colors focus:text-orange-400 focus:outline-none ${
                     props.curPoem?.title === title.title
-                        ? "font-medium text-amber-500"
+                        ? "font-medium text-orange-400"
                         : "text-gray-700 hover:text-gray-500"
                 }`}
                 onClick={() => props.setCurPoem(title)}
@@ -35,11 +35,11 @@ function AccordionItem(props) {
             >
                 <button className="group flex items-center gap-3 focus:outline-none">
                     {props.active ? (
-                        <HiOutlineMinus className="text-base text-amber-500 sm:text-lg" />
+                        <HiOutlineMinus className="text-base text-orange-400 sm:text-lg" />
                     ) : (
-                        <HiOutlinePlus className="text-base text-amber-500 sm:text-lg" />
+                        <HiOutlinePlus className="text-base text-orange-400 sm:text-lg" />
                     )}
-                    <h4 className="text-base font-medium text-gray-700 transition-colors group-focus:text-gray-600 sm:text-lg xl:text-xl">
+                    <h4 className="text-base font-medium text-gray-700 transition-colors group-focus:text-gray-600/90 sm:text-lg xl:text-xl">
                         {props.heading}
                     </h4>
                 </button>
