@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 
 import Hero from "./components/Hero";
 import Work from "./components/Work";
+import Footer from "./components/Footer";
 
 export default function App() {
     const sectionRef = useRef(null);
@@ -16,9 +17,7 @@ export default function App() {
                 <Hero handleScroll={handleScroll} />
                 <Work sectionRef={sectionRef} />
             </main>
-            <footer className="mt-20 p-2 text-center text-xs text-gray-400">
-                Copyright &copy; by curypd. All rights reserved.
-            </footer>
+            <Footer />
         </>
     );
 }
