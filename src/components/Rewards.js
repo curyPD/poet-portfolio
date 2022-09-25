@@ -18,9 +18,9 @@ import diploma10 from "../img/rewards/diploma-10.jpg";
 import diploma11 from "../img/rewards/diploma-11.jpg";
 import diploma12 from "../img/rewards/diploma-12.jpg";
 
-function Rewards() {
+function Rewards({ sectionRef }) {
     return (
-        <section className="py-10 sm:py-16 md:py-20 xl:py-24">
+        <section ref={sectionRef} className="py-10 sm:py-16 md:py-20 xl:py-24">
             <h2 className="mb-10 text-center text-2xl font-semibold text-gray-900 sm:text-3xl xl:mb-16 xl:text-4xl">
                 Дипломы
             </h2>
