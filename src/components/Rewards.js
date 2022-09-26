@@ -20,17 +20,20 @@ import diploma12 from "../img/rewards/diploma-12.jpg";
 
 function Rewards({ sectionRef }) {
     return (
-        <section ref={sectionRef} className="py-10 sm:py-16 md:py-20 xl:py-24">
+        <section
+            ref={sectionRef}
+            className="pb-10 pt-2 sm:pb-16 md:pb-20 md:pt-4 xl:pb-24"
+        >
             <h2 className="mb-10 text-center text-2xl font-semibold text-gray-900 sm:text-3xl xl:mb-16 xl:text-4xl">
                 Дипломы
             </h2>
-            <div className="relative mx-auto w-2/3 max-w-xs lg:w-full lg:max-w-sm xl:max-w-md">
+            <div className="relative mx-auto w-2/3 max-w-xs lg:w-full lg:max-w-sm xl:max-w-md 2xl:max-w-lg">
                 <Splide
                     hasTrack={false}
                     options={{
                         perPage: 1,
                         rewind: true,
-                        gap: "3rem",
+                        gap: "7rem",
                     }}
                 >
                     <div className="xl:mx-auto xl:w-5/6">
