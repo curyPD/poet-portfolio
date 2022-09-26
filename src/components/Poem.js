@@ -2,9 +2,7 @@ import React from "react";
 
 function Poem({ poem }) {
     function formatString(string) {
-        const formattedString = string
-            .replaceAll("\n", "<br />")
-            .replace("<br />", "");
+        const formattedString = string.trim().replaceAll("\n", "<br />");
         return formattedString;
     }
     return (
