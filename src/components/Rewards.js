@@ -20,7 +20,10 @@ import diploma12 from "../img/rewards/diploma-12.jpg";
 
 function Rewards({ sectionRef }) {
     return (
-        <section ref={sectionRef} className="py-10 sm:py-16 md:py-20 xl:py-24">
+        <section
+            ref={sectionRef}
+            className="pb-10 pt-2 sm:pb-16 md:pb-20 md:pt-4 xl:pb-24"
+        >
             <h2 className="mb-10 text-center text-2xl font-semibold text-gray-900 sm:text-3xl xl:mb-16 xl:text-4xl">
                 Дипломы
             </h2>

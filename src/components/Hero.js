@@ -4,7 +4,7 @@ import image from "../img/hero.jpg";
 
 function Hero(props) {
     return (
-        <section className="pt-6 pb-16 sm:pt-10 md:pt-16 md:pb-20 xl:pb-24">
+        <section className="pt-6 pb-24 sm:pt-10 sm:pb-32 md:pt-16 md:pb-36 xl:pb-44">
             <div className="container mx-auto flex flex-col items-center gap-8 px-6 sm:gap-14 md:px-12 lg:flex-row-reverse lg:px-6 xl:max-w-screen-xl xl:gap-24 xl:px-12">
                 <div className="w-44 sm:w-auto sm:max-w-xs lg:w-2/5 lg:max-w-none">
                     <img src={image} alt="Фотография Станислава Дружинина" />

@@ -13,10 +13,10 @@ function MobileMenu({
         <>
             <Overlay menuOpen={menuOpen} closeMenu={closeMenu} />
             <div
-                className={`absolute right-0 top-0 z-50 block h-screen w-64 transition-all ${
+                className={`absolute right-0 top-0 z-50 block h-screen w-64 origin-right transition-all ${
                     menuOpen
-                        ? "pointer-events-auto translate-x-0"
-                        : "pointer-events-none translate-x-full"
+                        ? "pointer-events-auto scale-x-100"
+                        : "pointer-events-none scale-x-0"
                 } touch-none bg-white py-3 pr-4 pl-6 md:w-80 md:pr-8 lg:hidden`}
             >
                 <div className="mb-10 flex justify-end">
