@@ -5,6 +5,10 @@ import Poem from "./Poem";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 
 import data from "../poems";
+
+import { app } from "../firebase";
+import { getDatabase } from "firebase/database";
+
 function Work({ sectionRef }) {
     const [curPoem, setCurPoem] = useState(null);
 

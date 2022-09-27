@@ -1,3 +1,53 @@
+import { app } from "./firebase";
+import { getDatabase, ref, set } from "firebase/database";
+
+export function addPoemsToDB() {
+    const db = getDatabase(app);
+    poems.forEach((category) => {
+        switch (category.heading) {
+            case "Философское":
+                category.category = "philosophical";
+                break;
+            case "О Родине":
+                category.category = "motherland";
+                break;
+            case "О природе":
+                category.category = "nature";
+                break;
+            case "Любовная лирика":
+                category.category = "love";
+                break;
+            case "Разное":
+                category.category = "misc";
+                break;
+        }
+        const entries = category.titles.map((title, i) => {
+            return [`title${i}`, title.title];
+        });
+        const titles = Object.fromEntries(entries);
+        set(ref(db, `categories/${category.category}`), {
+            categoryName: category.heading,
+            titles,
+        });
+        const entries1 = category.titles.map((title, i) => {
+            return [
+                `title${i}`,
+                {
+                    title: title.title,
+                    content: formatString(title.content),
+                },
+            ];
+        });
+        const poems = Object.fromEntries(entries1);
+        // console.log(poems);
+        set(ref(db, `poems/${category.category}`), poems);
+    });
+}
+function formatString(string) {
+    const formattedString = string.trim().replaceAll("\n", "<br />");
+    return formattedString;
+}
+
 const poems = [
     {
         heading: "Философское",
@@ -2440,3 +2490,34 @@ II.
 ];
 
 export default poems;
+
+const json = {
+    categories: {
+        philosophical: {
+            name: "Философское",
+            titles: {
+                title1: true,
+                title2: true,
+                title3: true,
+            },
+        },
+        motherland: {
+            name: "О Родине",
+            titles: {
+                North: true,
+                "Back home": true,
+                Trees: true,
+            },
+        },
+    },
+    poems: {
+        philosophical: {
+            title1: {
+                title: "Туманным утром",
+                content: "A lot of text that I don't have time to write",
+            },
+            "Back home": true,
+            Trees: true,
+        },
+    },
+};
