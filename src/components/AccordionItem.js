@@ -4,6 +4,7 @@ import { HiOutlinePlus, HiOutlineMinus } from "react-icons/hi";
 function AccordionItem(props) {
     const [itemHeight, setItemHeight] = useState(null);
     const itemEl = useRef(null);
+
     useEffect(() => {
         setItemHeight(itemEl.current.scrollHeight);
     }, []);
@@ -12,17 +13,19 @@ function AccordionItem(props) {
         height: props.active ? itemHeight : "0px",
     };
 
-    const titles = props.titles.map((title, i) => (
+    const titles = props.titleEntries.map((titleEntry, i) => (
         <li key={i} className="mb-3 text-sm md:text-base">
             <button
                 className={`transition-colors focus:text-orange-400 focus:outline-none ${
-                    props.curPoem?.title === title.title
+                    props.curPoem?.title === titleEntry[1]
                         ? "font-medium text-orange-400"
                         : "text-gray-700 hover:text-gray-500"
                 }`}
-                onClick={() => props.setCurPoem(title)}
+                onClick={() =>
+                    props.setCurPoem(props.categoryId, titleEntry[0])
+                }
             >
-                {title.title}
+                {titleEntry[1]}
             </button>
         </li>
     ));
