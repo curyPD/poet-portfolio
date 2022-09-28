@@ -37,6 +37,8 @@ function Work({ sectionRef }) {
                         case "misc":
                             acc[4] = entry;
                             break;
+                        default:
+                            console.log("No category matches");
                     }
                     return acc;
                 }, []);
