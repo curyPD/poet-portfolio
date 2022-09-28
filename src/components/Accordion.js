@@ -13,10 +13,11 @@ function Accordion(props) {
         setActiveItem(i);
     }
 
-    const accordionItems = props.data.map((obj, i) => (
+    const accordionItems = props.categories.map((entry, i) => (
         <AccordionItem
-            heading={obj.heading}
-            titles={obj.titles}
+            heading={entry[1].categoryName}
+            titleEntries={Object.entries(entry[1].titles)}
+            categoryId={entry[0]}
             key={i}
             active={activeItem === i}
             handleClick={() => onItemClick(i)}

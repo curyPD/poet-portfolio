@@ -1,12 +1,69 @@
-import React, { useState } from "react";
-import Accordion from "./Accordion";
-import Poem from "./Poem";
+import React, { useState, useEffect } from "react";
+
+import { app } from "../firebase";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 import { HiOutlineChevronLeft } from "react-icons/hi";
 
-import data from "../poems";
+import Accordion from "./Accordion";
+import Poem from "./Poem";
+
 function Work({ sectionRef }) {
-    const [curPoem, setCurPoem] = useState(null);
+    const [work, setWork] = useState([]);
+    const [curPoem, setCurPoem] = useState({});
+
+    useEffect(() => {
+        const db = getDatabase(app);
+        const categoriesRef = ref(db, "categories");
+        onValue(
+            categoriesRef,
+            (snapshot) => {
+                const data = snapshot.val();
+                const dataEntries = Object.entries(data);
+                const sortedDataEntries = dataEntries.reduce((acc, entry) => {
+                    switch (entry[0]) {
+                        case "philosophical":
+                            acc[0] = entry;
+                            break;
+                        case "motherland":
+                            acc[1] = entry;
+                            break;
+                        case "nature":
+                            acc[2] = entry;
+                            break;
+                        case "love":
+                            acc[3] = entry;
+                            break;
+                        case "misc":
+                            acc[4] = entry;
+                            break;
+                        default:
+                            console.log("No category matches");
+                    }
+                    return acc;
+                }, []);
+                setWork(sortedDataEntries);
+            },
+            {
+                onlyOnce: true,
+            }
+        );
+    }, []);
+
+    function getPoem(category, titleId) {
+        const db = getDatabase(app);
+        const poemRef = ref(db, `poems/${category}/${titleId}`);
+        onValue(
+            poemRef,
+            (snapshot) => {
+                const data = snapshot.val();
+                setCurPoem(data);
+            },
+            {
+                onlyOnce: true,
+            }
+        );
+    }
 
     return (
         <section ref={sectionRef} className="py-14 sm:py-16 md:py-20 xl:py-24">
@@ -29,8 +86,8 @@ function Work({ sectionRef }) {
 
                 <div className="flex flex-col-reverse gap-8 lg:flex-row">
                     <Accordion
-                        data={data}
-                        setCurPoem={setCurPoem}
+                        categories={work}
+                        setCurPoem={getPoem}
                         curPoem={curPoem}
                     />
                     {curPoem && <Poem poem={curPoem} />}
