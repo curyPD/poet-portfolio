@@ -13,20 +13,18 @@ function Accordion(props) {
         setActiveItem(i);
     }
 
-    const accordionItems = props.categories.map((entry, i) => {
-        return (
-            <AccordionItem
-                heading={entry[1].categoryName}
-                titleEntries={Object.entries(entry[1].titles)}
-                categoryId={entry[0]}
-                key={i}
-                active={activeItem === i}
-                handleClick={() => onItemClick(i)}
-                setCurPoem={props.setCurPoem}
-                curPoem={props.curPoem}
-            />
-        );
-    });
+    const accordionItems = props.categories.map((entry, i) => (
+        <AccordionItem
+            heading={entry[1].categoryName}
+            titleEntries={Object.entries(entry[1].titles)}
+            categoryId={entry[0]}
+            key={i}
+            active={activeItem === i}
+            handleClick={() => onItemClick(i)}
+            setCurPoem={props.setCurPoem}
+            curPoem={props.curPoem}
+        />
+    ));
 
     return (
         <div

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 /*
     ACTION PLAN v2
     What I want to achieve:
