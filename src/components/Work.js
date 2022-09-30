@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { app } from "../firebase";
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -7,48 +7,10 @@ import { HiOutlineChevronLeft } from "react-icons/hi";
 
 import Accordion from "./Accordion";
 import Poem from "./Poem";
+import categories from "../categories";
 
 function Work({ sectionRef }) {
-    const [work, setWork] = useState([]);
-    const [curPoem, setCurPoem] = useState({});
-
-    useEffect(() => {
-        const db = getDatabase(app);
-        const categoriesRef = ref(db, "categories");
-        onValue(
-            categoriesRef,
-            (snapshot) => {
-                const data = snapshot.val();
-                const dataEntries = Object.entries(data);
-                const sortedDataEntries = dataEntries.reduce((acc, entry) => {
-                    switch (entry[0]) {
-                        case "philosophical":
-                            acc[0] = entry;
-                            break;
-                        case "motherland":
-                            acc[1] = entry;
-                            break;
-                        case "nature":
-                            acc[2] = entry;
-                            break;
-                        case "love":
-                            acc[3] = entry;
-                            break;
-                        case "misc":
-                            acc[4] = entry;
-                            break;
-                        default:
-                            console.log("No category matches");
-                    }
-                    return acc;
-                }, []);
-                setWork(sortedDataEntries);
-            },
-            {
-                onlyOnce: true,
-            }
-        );
-    }, []);
+    const [curPoem, setCurPoem] = useState(null);
 
     function getPoem(category, titleId) {
         const db = getDatabase(app);
@@ -86,7 +48,7 @@ function Work({ sectionRef }) {
 
                 <div className="flex flex-col-reverse gap-8 lg:flex-row">
                     <Accordion
-                        categories={work}
+                        categories={categories}
                         setCurPoem={getPoem}
                         curPoem={curPoem}
                     />
