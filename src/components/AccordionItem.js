@@ -12,7 +12,6 @@ function AccordionItem(props) {
     const styles = {
         height: props.active ? itemHeight : "0px",
     };
-
     const titles = props.titleEntries.map((titleEntry, i) => (
         <li key={i} className="mb-3 text-sm md:text-base">
             <button
