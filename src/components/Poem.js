@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 /*
     ACTION PLAN v2
     What I want to achieve:
@@ -20,7 +20,36 @@ import React, { useRef } from "react";
     3) 
 */
 function Poem({ poem }) {
+    const [poemHeight, setPoemHeight] = useState(0);
+    const [parentHeight, setParentHeight] = useState(0);
+    const [styles, setStyles] = useState({});
+
     const articleRef = useRef(null);
+
+    useEffect(() => {
+        let minHeight;
+        // 0. Reset parent height to normal
+        if (poemHeight && parentHeight) {
+            console.log("Not first render", poemHeight, parentHeight);
+            minHeight = parentHeight - poemHeight;
+            console.log(minHeight);
+        }
+        // 1. Check if poem top is visible
+        const { y, height: poemH } = articleRef.current.getBoundingClientRect();
+        const normalParentHeight =
+            minHeight ||
+            articleRef.current.parentElement.getBoundingClientRect().height;
+        setPoemHeight(poemH);
+        setParentHeight(normalParentHeight + poemH);
+        setStyles({
+            minHeight: `${normalParentHeight}px`,
+        });
+        if (y >= 0) return;
+        // 2. Increase parent height
+        setStyles({
+            minHeight: `${normalParentHeight + poemH}px`,
+        });
+    }, [poem]);
 
     // useEffect(() => {
     //     // function controlHeight() {
@@ -39,7 +68,7 @@ function Poem({ poem }) {
     // }, [poem]);
 
     return (
-        <div className="flex-1">
+        <div className="flex-1" style={styles}>
             <article ref={articleRef}>
                 <h3 className="mb-5 text-lg font-semibold leading-tight text-gray-800 sm:text-xl lg:mt-2 xl:mb-7 xl:text-2xl">
                     {poem.title}
