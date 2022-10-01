@@ -9,6 +9,7 @@ function Poem({ poem }) {
     const articleRef = useRef(null);
 
     useEffect(() => {
+        console.log("Effect RAN");
         setSticky(false);
         let minHeight;
         if (poemHeight && parentHeight) {
@@ -32,7 +33,7 @@ function Poem({ poem }) {
                 behavior: "smooth",
             });
         }
-    }, [poem]);
+    }, [poem, poemHeight, parentHeight]);
 
     const styles = {
         minHeight: parentStyle,
