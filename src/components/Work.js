@@ -29,7 +29,7 @@ function Work({ sectionRef }) {
 
     return (
         <section ref={sectionRef} className="py-14 sm:py-16 md:py-20 xl:py-24">
-            <div className="container mx-auto px-6 md:px-12 lg:px-6 xl:max-w-screen-xl xl:px-12">
+            <div className="container mx-auto px-6 md:px-12 lg:max-w-6xl lg:px-6 xl:max-w-screen-xl xl:px-12">
                 <h2 className="mb-10 text-2xl font-semibold text-gray-900 sm:text-3xl xl:mb-12 xl:text-4xl">
                     Произведения
                 </h2>
