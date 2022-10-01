@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 function Poem({ poem }) {
     const [poemHeight, setPoemHeight] = useState(0);
     const [parentHeight, setParentHeight] = useState(0);
-    const [styles, setStyles] = useState({});
+    const [parentStyle, setParentStyle] = useState("");
     const [sticky, setSticky] = useState(false);
 
     const articleRef = useRef(null);
@@ -21,16 +21,12 @@ function Poem({ poem }) {
             articleRef.current.parentElement.getBoundingClientRect().height;
         setPoemHeight(poemH);
         setParentHeight(normalParentHeight + poemH);
-        setStyles({
-            minHeight: `${normalParentHeight}px`,
-        });
+        setParentStyle(`${normalParentHeight}px`);
         if (poemH < window.innerHeight) {
             setSticky(true);
         }
         if (y >= 0) return;
-        setStyles({
-            minHeight: `${Math.abs(y) + poemH}px`,
-        });
+        setParentStyle(`${Math.abs(y) + poemH}px`);
         if (poemH >= window.innerHeight) {
             articleRef.current.parentElement.scrollIntoView({
                 behavior: "smooth",
@@ -38,8 +34,12 @@ function Poem({ poem }) {
         }
     }, [poem]);
 
+    const styles = {
+        minHeight: parentStyle,
+    };
+
     return (
-        <div className="flex-1" style={styles}>
+        <div className="flex-1" style={parentStyle ? styles : {}}>
             <article
                 ref={articleRef}
                 className={sticky ? "lg:sticky lg:top-4" : ""}
