@@ -9,7 +9,7 @@ function DesktopMenu({
     handleScrollWork,
 }) {
     return (
-        <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-end px-4 md:px-8 lg:justify-start lg:px-12">
+        <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-end px-4 md:px-8 lg:justify-start lg:px-6 xl:px-12">
             {!menuOpen && (
                 <div className="block lg:hidden">
                     <button
